@@ -1,0 +1,56 @@
+extends ../../layouts/default.pug
+include ../../mixins/table-tree.pug
+include ../../mixins/alert.pug
+include ../../mixins/sort.pug
+include ../../mixins/filter-status.pug
+include ../../mixins/search.pug
+block main 
+  if(role.permissions.includes("products-category_view"))
+    h1 Trang danh mục sản phẩm
+    +alert-success(5000)
+    +alert-error(5000)
+
+    .card-ml-3 
+      .card-header Bộ lọc và tìm kiểm 
+        .card-body 
+          .row 
+            .col-6
+              +filter-status(filterStatus)
+            .col-4
+              +search(keyword)
+
+    .card.mb-3
+      .card-header Sắp xếp
+        .card-body
+          .row
+            .col-4
+              +sorts()
+
+    .card-ml-3
+      .card-header danh sach
+        .card-body 
+          .row 
+            .col-8
+            .col-4
+            if(role.permissions.includes("products-category_create"))
+              a(
+                href=`${prefixAdmin}/products-category/create`
+                class="btn btn-outline-success"
+              ) thêm mới
+          table(
+                class = "table table_hover table-xs"
+                checkbox-multi
+              )
+                thead
+                  tr 
+                    th 
+                      input(type="checkbox" name="checkall")
+                    th STT 
+                    th Hình ảnh 
+                    th Tiêu đề
+                    th Trạng thái 
+                    th Hành động
+                tbody
+                  +table-tree(records)
+    script(src="/admin/js/product_category.js")
+  
