@@ -1,6 +1,7 @@
 const categoryMiddleware = require("../../middlewares/client/category.middleware")
 const cartMiddleware = require("../../middlewares/client/cart.middleware")
 const userMiddleware = require("../../middlewares/client/user.middleware")
+const settingMiddleware = require("../../middlewares/client/setting.middleware")
 const searchRoutes = require("./search.router")
 const cartRoutes = require("./cart.router")
 const checkoutRoutes = require("./checkout.router")
@@ -13,6 +14,8 @@ module.exports =(app) => {
   app.use(cartMiddleware.cartId)
 
   app.use(userMiddleware.infoUser)
+
+  app.use(settingMiddleware.SettingGeneral)
 
   app.use("/", homeRoutes)
 
