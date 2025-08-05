@@ -1,6 +1,6 @@
-// [GET] chat/
-module.exports.index = async (req,res) =>{
-  res.render("/client/pages/chat/index",{
-    pageTitle: "chat"
+//[get] chat
+module.exports.index = (req,res) =>{
+  res.render("client/pages/chats/index.pug",{
+    pageTitle:"chat"
   })
 }

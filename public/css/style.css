@@ -186,3 +186,92 @@ display: none;
 }
 }
 /* end showalert */
+
+/* chat */
+.chat .inner-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 3px;
+}
+
+/* Tin nhắn bên trái */
+.chat .inner-incoming {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.chat .inner-incoming .inner-name {
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+.chat .inner-incoming .inner-content {
+  background-color: rgb(212, 211, 211);
+  border: 1px solid gray;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin-left: 10px;
+  max-width: 60%;
+  word-wrap: break-word;
+  display: inline-block;
+  text-align: left;
+}
+
+/* Tin nhắn bên phải */
+.chat .inner-outgoing {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.chat .inner-outgoing .inner-content {
+  background-color: #c34d79;
+  color: white;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin-right: 10px;
+  max-width: 60%;
+  word-wrap: break-word;
+  display: inline-block;
+  text-align: left;
+}
+.chat .inner-foot {
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.chat .inner-form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.chat .inner-form input[type="text"] {
+  flex: 1;   /* ✅ input chiếm toàn bộ phần còn lại */
+  width: 400%;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  outline: none;
+  margin-right: 10px;              /* ✅ tạo khoảng cách với nút gửi */
+}
+
+.chat .inner-form button {
+  width: 50px;
+  height: 50px;
+  border: none;
+  background-color: hotpink;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
+/* End chat */

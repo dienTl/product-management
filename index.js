@@ -7,6 +7,8 @@ const bodyParser = require('body-parser') // dữ liệu từ body của request
 const cookieParser = require('cookie-parser') // de su dung cookie , de hien thi thong bao
 const session = require('express-session')  //de su dung cookie , de hien thi thong bao
 const flash = require('express-flash')  //de su dung cookie , de hien thi thong bao
+const http = require('http');
+const { Server } = require("socket.io");
 const moment = require('moment') // để dịnh dạng ngày giờ
 const app = express()
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -23,6 +25,15 @@ const route = require("./routers/client/index.router")
 const routeAmin = require("./routers/admin/index.router.js")
 database.connect();
 
+// socket io
+
+const server = http.createServer(app);
+
+const io = new Server(server);
+io.on('connection', (socket) => {
+  console.log('a user connected', socket.id);
+});
+//end socket
 const sysemConfig = require("./config/system.js")
 
 // app locals varibles
@@ -53,6 +64,6 @@ routeAmin(app)
 //     pagetitle:"404 NOT FOUND",
 //   })
 // })
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
