@@ -252,7 +252,7 @@ display: none;
 
 .chat .inner-form input[type="text"] {
   flex: 1;   /* ✅ input chiếm toàn bộ phần còn lại */
-  width: 400%;
+  width: 40%;
   padding: 12px 20px;
   font-size: 16px;
   border-radius: 25px;
@@ -273,5 +273,17 @@ display: none;
   font-size: 20px;
   color: white;
   cursor: pointer;
+}
+.chat .inner-outgoing .inner-content {
+  background-color: #c34d79;
+  color: white;
+  border-radius: 6px;
+  padding: 8px 12px;
+  max-width: 60%;
+  word-wrap: break-word;
+  display: inline-block;
+  text-align: left;
+
+  margin-left: auto;  /* ✅ quan trọng: đẩy phần tử sang phải */
 }
 /* End chat */

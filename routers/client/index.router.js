@@ -9,6 +9,7 @@ const chatRoutes = require("./chat.router")
 const userRouter = require("./user.router")
 const productRouter = require("./product.router")
 const homeRoutes = require("./home.router")
+const authMiddleware = require("../../middlewares/client/auth.middleware")
 module.exports =(app) => {
   app.use(categoryMiddleware.category)
 
@@ -30,5 +31,5 @@ module.exports =(app) => {
   
   app.use("/user" , userRouter)
 
-  app.use("/chat" , chatRoutes )
+  app.use("/chat" ,authMiddleware.requireAuth, chatRoutes )
 }
